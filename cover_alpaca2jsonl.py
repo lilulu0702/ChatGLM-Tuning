@@ -4,18 +4,18 @@ from tqdm import tqdm
 
 
 def format_example(example: dict) -> dict:
-    context = f"Instruction: {example['instruction']}\n"
-    if example.get("input"):
-        context += f"Input: {example['input']}\n"
-    context += "Answer: "
-    target = example["output"]
-    return {"context": context, "target": target}
+     context = f"Instruction: {example['Instruction']}\n"
+    # if example.get("input"):
+    #     context += f"Input: {example['input']}\n"
+    # context += "Answer: "
+     target = example["output"]
+     return {"context": context, "target": target}
 
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--data_path", type=str, default="data/alpaca_data.json")
-    parser.add_argument("--save_path", type=str, default="data/alpaca_data.jsonl")
+    parser.add_argument("--data_path", type=str, default="/home/lilulu/Datasets/0412.json")
+    parser.add_argument("--save_path", type=str, default="/home/lilulu/Datasets/0412.jsonl")
 
     args = parser.parse_args()
     with open(args.data_path) as f:

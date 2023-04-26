@@ -11,12 +11,12 @@ import datasets
 import os
 
 
-tokenizer = AutoTokenizer.from_pretrained("THUDM/chatglm-6b", trust_remote_code=True)
+tokenizer = AutoTokenizer.from_pretrained("/home/lilulu/ChatGLM-6B/chatglm-6b", trust_remote_code=True)
 
 
 @dataclass
 class FinetuneArguments:
-    dataset_path: str = field(default="data/alpaca")
+    dataset_path: str = field(default="/home/lilulu/Datasets")
     model_path: str = field(default="output")
     lora_rank: int = field(default=8)
 
@@ -75,7 +75,7 @@ def main():
 
     # init model
     model = AutoModel.from_pretrained(
-        "THUDM/chatglm-6b", load_in_8bit=True, trust_remote_code=True, device_map="auto"
+        "/home/lilulu/ChatGLM-6B/chatglm-6b", load_in_8bit=True, trust_remote_code=True, device_map="auto"
     )
     model.gradient_checkpointing_enable()
     model.enable_input_require_grads()
